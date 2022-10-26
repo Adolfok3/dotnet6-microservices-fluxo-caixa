@@ -1,0 +1,278 @@
+{
+	"info": {
+		"_postman_id": "f17081ae-86e5-4b52-b9e3-afb5134801a4",
+		"name": "FluxoCaixa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1 - Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"root\",\r\n    \"password\": \"root\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5004/api/authentication/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5004",
+					"path": [
+						"api",
+						"authentication",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.2 - Refresh Token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI5YjgwMThhNC1kOTJhLTQ4MjEtOWFjYy1jZjdhYTg5NmJlMjUiLCJnaXZlbl9uYW1lIjoicm9vdCIsInJvbGUiOiJ1c2VyIiwibmJmIjoxNjY2NzQ3MjQyLCJleHAiOjE2NjczNTIwNDIsImlhdCI6MTY2Njc0NzI0Mn0.q5eX5shridJhVRKY4O6Xc3xMg-VT78Ba_HUyJu_IE6s",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"refreshtoken\": \"ZjI0MTQ3YzY5YzdjNDI3MGFiMjQxYmY2NGIyZWFlMzg1MmI2ZGM1NDQ1ZGM0NjM2YjllOGQzMWQxMjM2OTE1NQ==\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5004/api/authentication/refresh-token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5004",
+					"path": [
+						"api",
+						"authentication",
+						"refresh-token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2 - CashIn",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI5YjgwMThhNC1kOTJhLTQ4MjEtOWFjYy1jZjdhYTg5NmJlMjUiLCJnaXZlbl9uYW1lIjoicm9vdCIsInJvbGUiOiJ1c2VyIiwibmJmIjoxNjY2NzQzNzU3LCJleHAiOjE2NjczNDg1NTcsImlhdCI6MTY2Njc0Mzc1N30.58TbmXlIrY2Ih-qTI12779CbqPT4OgR4EOVLwDMTmeU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"number\": 1,\r\n  \"value\": 49.90,\r\n  \"description\": \"Entrada de R$49.90\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5004/api/cashin/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5004",
+					"path": [
+						"api",
+						"cashin",
+						"orders"
+					]
+				},
+				"description": "Adiciona uma nova entrada"
+			},
+			"response": []
+		},
+		{
+			"name": "3 - CashOut",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI5YjgwMThhNC1kOTJhLTQ4MjEtOWFjYy1jZjdhYTg5NmJlMjUiLCJnaXZlbl9uYW1lIjoicm9vdCIsInJvbGUiOiJ1c2VyIiwibmJmIjoxNjY2NzQzNzU3LCJleHAiOjE2NjczNDg1NTcsImlhdCI6MTY2Njc0Mzc1N30.58TbmXlIrY2Ih-qTI12779CbqPT4OgR4EOVLwDMTmeU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"number\": 2,\r\n  \"value\": -19.90,\r\n  \"description\": \"Saida de R$19.90\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5004/api/cashout/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5004",
+					"path": [
+						"api",
+						"cashout",
+						"orders"
+					]
+				},
+				"description": "Adiciona uma nova entrada"
+			},
+			"response": []
+		},
+		{
+			"name": "4 - Extrato",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI5YjgwMThhNC1kOTJhLTQ4MjEtOWFjYy1jZjdhYTg5NmJlMjUiLCJnaXZlbl9uYW1lIjoicm9vdCIsInJvbGUiOiJ1c2VyIiwibmJmIjoxNjY2NzQzNzU3LCJleHAiOjE2NjczNDg1NTcsImlhdCI6MTY2Njc0Mzc1N30.58TbmXlIrY2Ih-qTI12779CbqPT4OgR4EOVLwDMTmeU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5004/api/wallet/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5004",
+					"path": [
+						"api",
+						"wallet",
+						"transactions"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "cashin",
+							"description": "parametro para pesquisar na descrição, serviço ou username",
+							"disabled": true
+						},
+						{
+							"key": "maxCreatedAt",
+							"value": "2022-10-25T00:00:00",
+							"description": "filtra por uma data de criação maxima",
+							"disabled": true
+						},
+						{
+							"key": "minCreatedAt",
+							"value": "2022-10-25T00:00:00",
+							"description": "filtra por uma data de criação minima",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5 - Extrato Diario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI5YjgwMThhNC1kOTJhLTQ4MjEtOWFjYy1jZjdhYTg5NmJlMjUiLCJnaXZlbl9uYW1lIjoicm9vdCIsInJvbGUiOiJ1c2VyIiwibmJmIjoxNjY2NzQzNzU3LCJleHAiOjE2NjczNDg1NTcsImlhdCI6MTY2Njc0Mzc1N30.58TbmXlIrY2Ih-qTI12779CbqPT4OgR4EOVLwDMTmeU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5004/api/wallet/transactions/daily",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5004",
+					"path": [
+						"api",
+						"wallet",
+						"transactions",
+						"daily"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6 - Saldo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI5YjgwMThhNC1kOTJhLTQ4MjEtOWFjYy1jZjdhYTg5NmJlMjUiLCJnaXZlbl9uYW1lIjoicm9vdCIsInJvbGUiOiJ1c2VyIiwibmJmIjoxNjY2NzQzNzU3LCJleHAiOjE2NjczNDg1NTcsImlhdCI6MTY2Njc0Mzc1N30.58TbmXlIrY2Ih-qTI12779CbqPT4OgR4EOVLwDMTmeU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5004/api/wallet/balance",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5004",
+					"path": [
+						"api",
+						"wallet",
+						"balance"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

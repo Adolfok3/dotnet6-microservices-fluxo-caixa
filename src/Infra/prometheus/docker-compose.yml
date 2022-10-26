@@ -1,0 +1,18 @@
+version: '3.7'
+
+networks:
+  fluxocaixa:
+    external: true
+    
+services:
+  prometheus:
+    image: prom/prometheus
+    hostname: fluxocaixa.prometheus
+    container_name: fluxocaixa.prometheus
+    volumes:
+      - ./data/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+    networks:
+      fluxocaixa:
+        ipv4_address: 172.19.0.106

@@ -1,0 +1,26 @@
+version: '3.7'
+
+networks:
+  fluxocaixa:
+    external: true
+
+services:
+  vault:
+    image: vault
+    hostname: fluxocaixa.vault
+    container_name: fluxocaixa.vault
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID : root
+    volumes:
+      - ./vault/config:/vault/config
+      - ./vault/policies:/vault/policies
+      - ./vault/data:/vault/data
+      - ./vault/file:/vault/file
+    ports:
+      - 8200:8200
+    cap_add:
+      - IPC_LOCK
+    command: vault server -config=/vault/config/vault.json
+    networks:
+      fluxocaixa:
+        ipv4_address: 172.19.0.103

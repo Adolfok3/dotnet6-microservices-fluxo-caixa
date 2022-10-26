@@ -1,0 +1,19 @@
+version: '3.7'
+
+networks:
+  fluxocaixa:
+    external: true
+
+services:
+  postgres:
+    image: postgres
+    hostname: fluxocaixa.postgres
+    container_name: fluxocaixa.postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    networks:
+      fluxocaixa:
+        ipv4_address: 172.19.0.100

@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="6.0.10" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\FluxoCaixa.Chassis.Authentication\FluxoCaixa.Chassis.Authentication.csproj" />
+		<ProjectReference Include="..\FluxoCaixa.Chassis.AutoMapper\FluxoCaixa.Chassis.AutoMapper.csproj" />
+		<ProjectReference Include="..\FluxoCaixa.Chassis.Persistence\FluxoCaixa.Chassis.Persistence.csproj" />
+	</ItemGroup>
+
+</Project>

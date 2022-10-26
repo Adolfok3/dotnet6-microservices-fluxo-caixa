@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FluxoCaixa.Chassis.Authentication\FluxoCaixa.Chassis.Authentication.csproj" />
+    <ProjectReference Include="..\FluxoCaixa.Chassis.AutoMapper\FluxoCaixa.Chassis.AutoMapper.csproj" />
+    <ProjectReference Include="..\FluxoCaixa.Chassis.Caching\FluxoCaixa.Chassis.Caching.csproj" />
+    <ProjectReference Include="..\FluxoCaixa.Chassis.ExceptionHandler\FluxoCaixa.Chassis.ExceptionHandler.csproj" />
+    <ProjectReference Include="..\FluxoCaixa.Chassis.HealthCheck\FluxoCaixa.Chassis.HealthCheck.csproj" />
+    <ProjectReference Include="..\FluxoCaixa.Chassis.HttpLogging\FluxoCaixa.Chassis.HttpLogging.csproj" />
+    <ProjectReference Include="..\FluxoCaixa.Chassis.Logging\FluxoCaixa.Chassis.Logging.csproj" />
+    <ProjectReference Include="..\FluxoCaixa.Chassis.Messaging\FluxoCaixa.Chassis.Messaging.csproj" />
+    <ProjectReference Include="..\FluxoCaixa.Chassis.Metrics\FluxoCaixa.Chassis.Metrics.csproj" />
+    <ProjectReference Include="..\FluxoCaixa.Chassis.Persistence\FluxoCaixa.Chassis.Persistence.csproj" />
+    <ProjectReference Include="..\FluxoCaixa.Chassis.Swagger\FluxoCaixa.Chassis.Swagger.csproj" />
+    <ProjectReference Include="..\FluxoCaixa.Chassis.Utils\FluxoCaixa.Chassis.Utils.csproj" />
+    <ProjectReference Include="..\FluxoCaixa.Chassis.Vault\FluxoCaixa.Chassis.Vault.csproj" />
+  </ItemGroup>
+
+</Project>

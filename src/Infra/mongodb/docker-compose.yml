@@ -1,0 +1,19 @@
+version: '3.7'
+
+networks:
+  fluxocaixa:
+    external: true
+
+services:
+  mongo:
+    image: mongo
+    hostname: fluxocaixa.mongo
+    container_name: fluxocaixa.mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongo
+      MONGO_INITDB_ROOT_PASSWORD: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      fluxocaixa:
+        ipv4_address: 172.19.0.101

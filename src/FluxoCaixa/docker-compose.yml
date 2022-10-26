@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+  fluxocaixa.services.cashin:
+    image: ${DOCKER_REGISTRY-}fluxocaixaservicescashin
+    build:
+      context: .
+      dockerfile: Services/FluxoCaixa.Services.CashIn/Dockerfile
+
+  fluxocaixa.services.cashout:
+    image: ${DOCKER_REGISTRY-}fluxocaixaservicescashout
+    build:
+      context: .
+      dockerfile: Services/FluxoCaixa.Services.CashOut/Dockerfile
+
+
+  fluxocaixa.services.authentication:
+    image: ${DOCKER_REGISTRY-}fluxocaixaservicesauthentication
+    build:
+      context: .
+      dockerfile: Services/FluxoCaixa.Services.Authentication/Dockerfile
+
+
+  fluxocaixa.services.wallet:
+    image: ${DOCKER_REGISTRY-}fluxocaixaserviceswallet
+    build:
+      context: .
+      dockerfile: Services/FluxoCaixa.Services.Wallet/Dockerfile
+
+
+  fluxocaixa.services.gateway:
+    image: ${DOCKER_REGISTRY-}fluxocaixaservicesgateway
+    build:
+      context: .
+      dockerfile: Services/FluxoCaixa.Services.Gateway/Dockerfile
+

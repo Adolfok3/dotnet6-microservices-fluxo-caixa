@@ -1,0 +1,78 @@
+version: '3.7'
+
+networks:
+  fluxocaixa:
+    external: true
+
+services:
+  fluxocaixa.services.cashin:
+    hostname: cashin
+    container_name: cashin
+    environment:
+      VAULT_ADDRESS: http://fluxocaixa.vault:8200
+      VAULT_TOKEN: hvs.m4qMnlD3uxQBDQ9DxgaFDNQo
+      ASPNETCORE_ENVIRONMENT: Development
+    ports:
+      - "5003:80"
+    networks:
+      fluxocaixa:
+        ipv4_address: 172.19.0.203
+
+  fluxocaixa.services.cashout:
+    hostname: cashout
+    container_name: cashout
+    environment:
+      VAULT_ADDRESS: http://fluxocaixa.vault:8200
+      VAULT_TOKEN: hvs.m4qMnlD3uxQBDQ9DxgaFDNQo
+      ASPNETCORE_ENVIRONMENT: Development
+    ports:
+      - "5002:80"
+    networks:
+      fluxocaixa:
+        ipv4_address: 172.19.0.202
+
+  fluxocaixa.services.wallet:
+    hostname: wallet
+    container_name: wallet
+    environment:
+      VAULT_ADDRESS: http://fluxocaixa.vault:8200
+      VAULT_TOKEN: hvs.m4qMnlD3uxQBDQ9DxgaFDNQo
+      ASPNETCORE_ENVIRONMENT: Development
+      TZ: America/Sao_Paulo
+    ports:
+      - "5001:80"
+    networks:
+      fluxocaixa:
+        ipv4_address: 172.19.0.201
+
+  fluxocaixa.services.authentication:
+    hostname: authentication
+    container_name: authentication
+    environment:
+      VAULT_ADDRESS: http://fluxocaixa.vault:8200
+      VAULT_TOKEN: hvs.m4qMnlD3uxQBDQ9DxgaFDNQo
+      ASPNETCORE_ENVIRONMENT: Development
+    ports:
+      - "5000:80"
+    networks:
+      fluxocaixa:
+        ipv4_address: 172.19.0.200
+
+  fluxocaixa.services.gateway:
+    hostname: gateway
+    container_name: gateway
+    environment:
+      VAULT_ADDRESS: http://fluxocaixa.vault:8200
+      VAULT_TOKEN: hvs.m4qMnlD3uxQBDQ9DxgaFDNQo
+      ASPNETCORE_ENVIRONMENT: Development
+    ports:
+      - "5004:80"
+    depends_on:
+      - fluxocaixa.services.authentication
+      - fluxocaixa.services.wallet
+      - fluxocaixa.services.cashin
+      - fluxocaixa.services.cashout
+    networks:
+      fluxocaixa:
+        ipv4_address: 172.19.0.204
+
